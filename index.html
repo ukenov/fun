@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<title>Our Funky HTML Page</title>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div id="page1" class="container">
+    <div id="div2" class="d-flex align-items-center justify-content-center">
+        <div class="row">
+                <div class="col-4 fourth"></div>
+                <div class="col-4 fifth"></div>
+                <div class="col-4 sixth"></div>
+        </div>
+    </div>
+    <div style="margin-top: 10px; margin-bottom: 10px;" class="d-flex align-items-center justify-content-center">
+        <div>
+            <h3>Посмотрим еще раз чье это тело?:)</h3>
+            <div class="row">
+             <div><button class="btn btn-success" onclick="yesHandle()">Да</button></div>
+             <div><button id="noBtn" class="btn btn-danger" onclick="noHandle()" style="position: relative; z-index: 2">Нет</button></div>
+            </div>
+        </div>
+    </div>
+    <div id="div1" class="d-flex align-items-center justify-content-center">
+        <div class="row">
+                <div class="col-4 first"></div>
+                <div class="col-4 second"></div>
+                <div class="col-4 third"></div>
+        </div>
+    </div>
+</div>
+<div id="page2" class="container d-flex align-items-center justify-content-center">
+    <div id="showContent" style="display: none">
+        <img src="happy.jpg" style="width: 500px; height: 500px">
+        <h3>Ты у меня самая лучшая 😘😘😘</h3>
+        <audio id="happy" controls autoplay>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script>
+    let clicks = 0;
+    var caller = $("#noBtn");
+    
+
+    const noHandle = () => {
+        clicks += 1;
+        switch(clicks) {
+            case 1:
+                // and give it some content
+                let image = document.createElement('img')
+                image.src  = 'cry.png'
+                image.style.width = "200px";
+                image.style.height = "200px";
+
+                document.querySelector(".first").appendChild(image);
+                break;
+            case 2:
+                let image2 = document.createElement('img')
+                // and give it some content
+                image2.src  = 'cry2.png'
+                image2.style.width = "200px";
+                image2.style.height = "200px";
+
+                document.querySelector(".second").appendChild(image2);
+                break;
+            case 3:
+                let image3 = document.createElement('img')
+                // and give it some content
+                image3.src  = 'cry3.jpg'
+                image3.style.width = "200px";
+                image3.style.height = "200px";
+
+                document.querySelector(".third").appendChild(image3);
+                break;
+            case 4:
+                let image4 = document.createElement('img')
+                // and give it some content
+                image4.src  = 'cry4.jpg'
+                image4.style.width = "200px";
+                image4.style.height = "200px";
+
+                document.querySelector(".fourth").appendChild(image4);
+                break;
+            case 5:
+                let image5 = document.createElement('img')
+                // and give it some content
+                image5.src  = 'cry5.png'
+                image5.style.width = "200px";
+                image5.style.height = "200px";
+
+                document.querySelector(".fifth").appendChild(image5);
+                break;
+            case 6:
+                let image6 = document.createElement('img')
+                // and give it some content
+                image6.src  = 'cry6.jpg'
+                image6.style.width = "200px";
+                image6.style.height = "200px";
+
+                document.querySelector(".sixth").appendChild(image6);
+                break;
+            case 7:
+                document.getElementById("noBtn").style.marginLeft = "500px";
+                break;
+            case 8:
+                document.getElementById("noBtn").style.marginLeft = "100px";
+                break;
+            case 9:
+                document.getElementById("noBtn").style.width = "30px";
+                document.getElementById("noBtn").style.height = "30px";
+                document.getElementById("noBtn").style.fontSize = "8px";
+                break;
+            default:
+                caller.on('mouseenter', foo);
+        }
+    }
+
+    const yesHandle = () => {
+        document.getElementById("page1").innerHTML = "";
+        document.getElementById("showContent").style.display = "block";
+        document.getElementById("happy").play();
+    }
+
+    function foo()
+    {
+        var randX = Math.floor(Math.random() * (window.innerWidth - 100));
+        var randY = Math.floor(Math.random() * (window.innerHeight - 100));
+        console.log([randX, randY]);
+        caller.stop().animate({"left": randX + "px", "top": randY + "px"});
+
+    }
+</script>
